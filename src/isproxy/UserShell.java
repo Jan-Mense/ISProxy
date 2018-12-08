@@ -1,11 +1,9 @@
 import java.util.Scanner;
-import java.util.Vector;
 
 public class UserShell {
     private final HttpClient http_client;
     private final LogFileReader logfile_reader;
     private final Scanner scanner = new Scanner(System.in);
-    private final Vector<Integer> choices;
     private final String menuText = 
         "1-                                                        \n"+
         "2-\"date\"-> data for this Date(yyyy:mm:dd)                \n"+
