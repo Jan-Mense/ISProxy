@@ -4,7 +4,7 @@ public class UserShell {
     private final HttpClient http_client;
     private final LogFileReader logfile_reader;
     private final Scanner scanner = new Scanner(System.in);
-    private final String menuText = 
+    private final String menu_text = 
         "1-                                                        \n"+
         "2-\"date\"-> data for this Date(yyyy:mm:dd)                \n"+
         "3-all\t->                                                  ";
@@ -12,23 +12,16 @@ public class UserShell {
     public UserShell(HttpClient pHttpClient, LogFileReader pLogFileReader) {
         http_client = pHttpClient;
         logfile_reader = pLogFileReader;
-        
-        Vector<Integer> pChoices = new Vector<Integer>();
-        pChoices.add(1);
-        pChoices.add(2);
-        pChoices.add(3);
-        choices = pChoices;
     }
 
     public void run() {
         while(true) {
-            System.out.println(menuText);
+            System.out.println(menu_text);
             if(scanner.hasNext()) {
                 if(!scanner.hasNextInt()) {
                     scanner.next();
                 } else {
-                    int choice = scanner.nextInt();
-                    switch(choice) {
+                    switch(scanner.nextInt()) {
                         case 1:
                             choiceOne();
                             break;
