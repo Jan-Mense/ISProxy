@@ -5,9 +5,10 @@ public class UserShell {
     private final LogFileReader logfile_reader;
     private final Scanner scanner = new Scanner(System.in);
     private final String menu_text = 
-        "1-                                                        \n"+
-        "2-\"date\"-> data for this Date(yyyy:mm:dd)                \n"+
-        "3-all\t->                                                  ";
+        "1\t-> display traffic for date yyyy/mm/dd\n"+
+        "2\t-> display sum of traffic since logging began\n"+
+        "3\t-> enter URL (send a http request) to insert a line into logfile.txt\n"+
+        "^-C\t-> quit/exit";
 
     public UserShell(HttpClient pHttpClient, LogFileReader pLogFileReader) {
         http_client = pHttpClient;
@@ -40,14 +41,14 @@ public class UserShell {
     }
 
     private void choiceOne() {
-        System.out.println("SAFE CHOICE ONE");
+        http_client.TrafficForDate();
     }
 
     private void choiceTwo() {
-        System.out.println("SAFE CHOICE TWO");
+        http_client.SumOfEntireTraffic();
     }
 
     private void choiceThree() {
-        System.out.println("SAFE CHOICE THREE");
+        http_client.InteractiveUrl();
     }
 }
